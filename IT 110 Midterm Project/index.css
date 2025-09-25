@@ -1,0 +1,180 @@
+/* Global styles and font import */
+:root {
+    --bg-color: #1a2a35;
+    --text-color: #e0e0e0;
+    --card-bg: #223340;
+    --accent-color: #3498db;
+    --border-color: #3f5160;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+    flex-direction: column;
+}
+/*Search Bar */
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; 
+    position:relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+                
+.search-bar{
+
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 4px 14px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 40px;;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+}
+
+
+.search-bar:hover{
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.35);
+}
+
+.search-bar input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    font-size: 17px;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.search-bar button{
+    border: none;
+    color: var(--accent-color);
+    color: white;
+    padding: 9px 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.search-bar svg {
+    width: 18px;
+    height: 18px;
+}
+
+/*Hide Native Browser Controls, default "X" clear button in Chrome/Edge*/
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+/*Hide native dropdown arrow for datalist*/
+input[list]::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/*Shared mini buttons (X and ▼)*/
+.clear-btn, .dropdown-btn{
+    border: none;
+    background: transparent;
+    color: #7fa6c9;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 50%;
+    margin-left: 6px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease, background 0.3s ease;
+}
+
+.clear-btn:hover, .dropdown-btn:hover {
+    color: white;
+    background: rgba(255,255,255,0.08);
+    transform: scale(1.1);
+}
+
+/*Header Row - Main Display*/
+
+.weather-display{
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 40px;
+    padding: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: var(--box-shadow);
+}
+.city-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.city-country-header h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.ongoing-warning{
+    padding: 0.5rem 1rem;
+    background: rgba(255, 69, 0, 0.15);
+    border: 1px solid rgba(255, 69, 0, 0.4);
+    border-radius: 8px;
+    font-weight: 500px;
+}
+
+/*Main Weather section (2 columns)*/
+.main-weather-info{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+}
+
+.left-column{
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+}
+
+.right-column{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+}
