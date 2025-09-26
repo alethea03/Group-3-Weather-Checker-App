@@ -1,84 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Group 3 Weather Checker App</title>
-            <!-- Link to external CSS file -->
-            <link rel="stylesheet" href="/index.css">
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-            </style>
-    </head>
-    <body>
-        <!--create a minimalist weather checker app-->
-        <main class="landing-page">
-            <!--consists of search bar to search city, overall display or dashboard of the weather in the chosen city, country or original location-->
-            <section class="search-container">
-                <!--contains the search bar, and the temp unit pop-up-->
-                <form action="/search" method="get" class="search-bar" role="search">
-                    <input type="search" id="search-bar" name="q" placeholder="Enter city name" list="city-list"required>
-                    
-                    <!--Custom buttons-->
-                    <button type="button" class="clear-btn" aria-label="Options">▼</button>
-                    <button type="button" class="clear-btn" aria-label="Clear">✖</button>
-                    <button type="submit" id="search-button" aria-label="Search"> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                        </svg>
-                    </button>
-                </form>
-                <!-- The datalist provides the options for the input -->
-                <datalist id="city-list">
-                    <option value="London, UK">
-                    <option value="New York, USA">
-                    <option value="Tokyo, Japan">
-                    <option value="Paris, France">
-                    <option value="Sydney, Australia">
-                    <option value="Berlin, Germany">
-                    <option value="Beijing, China">
-                    <option value="Cairo, Egypt">
-                    <option value="Rio de Janeiro, Brazil">
-                    <option value="Mumbai, India">
-                </datalist>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
 
-         <section class="weather-display">
-                <!--this is the overall display or dashboard of the weather in the chosen city, country or original location-->
-                <!--Main Frame 1-->
-                <!--should have two columns of containers-->
-                <div class="city-header">
-                    <div class="city-country-header">
-                        <h1><span class="city-name">City, </span><span class="country-name">Country</span></h1>
-                    </div>
-                    <div class="ongoing-warning">
-                        <!--this is a overview summary to display a potential weather warning-->
-                        <p id="warning-text">Ongoing: Tropical Cyclone - Moderate</p>
-                    </div>
-                </div>
-                <div class="main-weather-info">
-                    <div class="left-column">
-                            <h1 id="current">Current Weather</h1>
-                            <time id="local-time">2:00 PM</time>
-                            <h2 id="temperature">25°C</h2> <!--if user chooses C as temp unit-->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-cloud-sun-fill" viewBox="0 0 16 16">
-                                <path d="M11.473 11a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"/>
-                                <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
-                            </svg>
-                            <p id="weather-description">Partly Cloudy</p>
-                        </div>
-                        <div class="right-column">
-                            <!--this is the additional info for the weather-->
-                            <p id="humidity">Humidity: 60%</p>
-                            <p id="wind-speed">Wind Speed: 15 km/h</p>
-                            <p id="feels-like">Feels Like: 27°C</p>
-                            <p id="uv-index">UV Index: 5 (Moderate)</p>
-                            <p id="visibility">Visibility: 10 km</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <form class="search-bar" action="search">
+      <input type="search" placeholder="Enter city name" required>
+      <button type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+    </form>
+  </div>
 
-              
-    </body>
+  <!-- WEATHER DISPLAY -->
+  <section class="weather-display">
+    <div class="city-header">
+      <div class="city-country-header">
+        <h1>City, Country</h1>
+      </div>
+      <div class="ongoing-warning">
+        Ongoing: Tropical Cyclone - Moderate
+      </div>
+    </div>
+
+    <div class="main-weather-info">
+      <div class="left-column">
+        <h2>Current Weather</h2>
+        <p>2:00 PM</p>
+        <h3>25°C</h3>
+        <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" width="70" alt="Partly Cloudy">
+        <p>Partly Cloudy</p>
+      </div>
+
+      <div class="right-column">
+        <p>Humidity: 60%</p>
+        <p>Wind Speed: 15 km/h</p>
+        <p>Feels Like: 27°C</p>
+        <p>UV Index: 5 (Moderate)</p>
+        <p>Visibility: 10 km</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7-DAY FORECAST SECTION -->
+  <section class="forecast-container">
+    <h2>7 Day Forecast</h2>
+    <div class="forecast-box">
+      <div class="day">Mon<br>26°C<br>☀️</div>
+      <div class="day">Tue<br>28°C<br>🌤</div>
+      <div class="day">Wed<br>24°C<br>🌦</div>
+      <div class="day">Thu<br>25°C<br>☁️</div>
+      <div class="day">Fri<br>27°C<br>☀️</div>
+      <div class="day">Sat<br>29°C<br>☀️</div>
+      <div class="day">Sun<br>26°C<br>🌦</div>
+    </div>
+  </section>
+
+<!-- OTHER CITIES SECTION -->
+<section class="other-cities-container">
+  <h2>Other Cities</h2>
+  <div class="cities-box">
+    <div class="city-card">
+      <p class="city-name">Manila</p>
+      <p class="temp">30°C</p>
+      <p class="weather">Cloudy</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Cebu</p>
+      <p class="temp">40°C</p>
+      <p class="weather">Sunny</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Davao</p>
+      <p class="temp">45°C</p>
+      <p class="weather">Rain</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Baguio</p>
+      <p class="temp">30°C</p>
+      <p class="weather">Storm</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Iloilo</p>
+      <p class="temp">45°C</p>
+      <p class="weather">Sun</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Cagayan</p>
+      <p class="temp">100%</p>
+      <p class="weather">Sun</p>
+    </div>
+  </div>
+</section>
+
+
+</body>
 </html>
