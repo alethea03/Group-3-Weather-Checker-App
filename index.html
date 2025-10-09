@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js" defer></script>
+
+  
+</head>
+<body>
+
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <button onclick=useMyLocation() type="button" name="location" class="location-btn" title="Use Current Location">
+        <!--GPS icon-->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414m0-13.828l1.414 1.414m12.728 12.728l1.414 1.414" />
+    </svg>
+    </button>       
+
+    <form class="search-bar" action="search" onsubmit="return false;">
+      <input type="search" id="cityInput" placeholder="Enter city name" required>
+      <button onclick="searchWeather()" type="submit" id="searchBtn" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+
+    </form>
+  </div>
+
+  <!-- WEATHER DISPLAY -->
+  <section class="weather-display">
+    <div class="city-header">
+      <div class="city-country-header">
+        <h1>City, Country</h1>
+      </div>
+      <div class="ongoing-warning">
+        Ongoing: Tropical Cyclone - Moderate
+      </div>
+    </div>
+
+    <div class="main-weather-info">
+      <div class="left-column">
+        <h2>Current Weather</h2>
+        <p>2:00 PM</p>
+        <h3>25°C</h3>
+        <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" width="70" alt="Partly Cloudy">
+        <p>Partly Cloudy</p>
+      </div>
+
+      <div class="right-column">
+        <p>Humidity: 60%</p>
+        <p>Wind Speed: 15 km/h</p>
+        <p>Feels Like: 27°C</p>
+        <p>UV Index: 5 (Moderate)</p>
+        <p>Visibility: 10 km</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7-DAY FORECAST SECTION -->
+  <section class="forecast-container">
+    <h2>7 Day Forecast</h2>
+    <div class="forecast-box">
+      <div class="day">Mon<br>26°C<br>☀️</div>
+      <div class="day">Tue<br>28°C<br>🌤</div>
+      <div class="day">Wed<br>24°C<br>🌦</div>
+      <div class="day">Thu<br>25°C<br>☁️</div>
+      <div class="day">Fri<br>27°C<br>☀️</div>
+      <div class="day">Sat<br>29°C<br>☀️</div>
+      <div class="day">Sun<br>26°C<br>🌦</div>
+    </div>
+  </section>
+  <!-- WEATHER MAP SECTION -->
+   <section class="weather-map-container">
+      <!--this is where the weather map is displayed, with the pinponted location of the user's origin-->
+      <h2>Weather Map</h2>
+      <div class="weather-map-box">
+        <div id="map"style="width: 100%; height: 500px;"></div>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhaRVHRYrxQs85AyIQJMuzCNsCaB4A-8E&callback=initMap"
+          async
+          defer>
+        </script>
+      </div>
+    </section>
+
+<!-- OTHER CITIES SECTION -->
+<section class="other-cities-container">
+  <h2>Other Cities</h2>
+  <div class="cities-box">
+    <div class="city-card">
+      <p class="city-name">Manila</p>
+      <p class="temp">30°C</p>
+      <p class="weather">Cloudy</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Cebu</p>
+      <p class="temp">40°C</p>
+      <p class="weather">Sunny</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Davao</p>
+      <p class="temp">45°C</p>
+      <p class="weather">Rain</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Baguio</p>
+      <p class="temp">30°C</p>
+      <p class="weather">Storm</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Iloilo</p>
+      <p class="temp">45°C</p>
+      <p class="weather">Sun</p>
+    </div>
+    <div class="city-card">
+      <p class="city-name">Cagayan</p>
+      <p class="temp">100%</p>
+      <p class="weather">Sun</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIDE NAVBAR ===== -->
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <h2 class="logo">☁️ WeatherApp</h2>
+    <nav class="nav-links">
+      <a href="#" class="active">🏠 Home</a>
+      <a href="#">🌦️ Forecast</a>
+      <a href="#">🗺️ Map</a>
+      <a href="#">📍 Locations</a>
+    </nav>
+  </div>
+
+  <div class="sidebar-bottom">
+    <button id="theme-toggle" class="theme-toggle">
+      🌙 Dark Mode
+    </button>
+  </div>
+</aside>
+
+</body>
+</html>
