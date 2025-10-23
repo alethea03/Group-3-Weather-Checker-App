@@ -1,0 +1,47 @@
+After that, we can go for:
+📖 Adding a PDF/ePub viewer inside the app
+🖊️ Adding shared highlights/annotations saved per user
+
+🌟 Next Step (Recommended Path)
+
+You’ve already got:
+✅ Database setup
+✅ File uploads working
+
+So your next move can be:
+
+Add a click event on each book item that routes to /reader/:id
+
+Create a Reader component (PDF or EPUB version)
+
+Pass the file_url to that reader
+
+🪄 Optional (Next)
+
+Once this runs smoothly, you can:
+
+Add Next/Prev page buttons for PDFs
+
+Add highlight/annotation tools later
+
+Store your last-read page in Supabase so you both can resume reading at the same spot
+
+🧠 Optional Enhancements Later
+
+Add progress bars during upload.
+
+Add delete/edit book options.
+
+Restrict file types and size.
+
+Store user who uploaded the book.
+
+🪄 Bonus (Optional)
+
+Later, we can extend this real-time feature to:
+
+Show when your partner is reading the same book
+
+Sync highlights and annotations live
+
+Notify each other when a new note or highlight appears
