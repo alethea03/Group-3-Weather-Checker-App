@@ -1,348 +1,421 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-  <link rel="stylesheet" href="index.css">
-  <style>
-    /* ✅ Ensures canvas draws properly inside sidebar */
- #sunPathCanvas {
-  width: 100%;       /* fill the parent container */
-  height: 220px;     /* set a proper height for full sun curve */
-  border-radius: 8px;
-  background: #001f3f; /* or rgba(0,0,0,0.2) if you prefer */
-  display: block;
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Group 3 Portfolio</title>
+      <link rel="stylesheet" href="style.css">
+      <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 
-}
-</style>
-</head>
-<body>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
 
-<!-- ===== SIDE NAVBAR ===== -->
-<aside class="sidebar">
-  <div class="sidebar-top">
-    <h2 class="logo">☁️ WeatherApp</h2>
-
-    <!-- Sidebar toggle button moved beside the logo -->
-    <button id="sidebarToggle" class="sidebar-toggle">
-      <span id="arrowIcon">❮</span>
-    </button>
-
-    <nav class="nav-links">
-      <a href="#" class="active">🏠 Home</a>
-      <a href="#">🌦️ Forecast</a>
-      <a href="#">🗺️ Map</a>
-      <a href="#">📍 Locations</a>
-      <a href="#">☀️ Sun Diagram</a>
-    </nav>
-  </div>
-
-  <div class="sidebar-bottom">
-    <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
-  </div>
-</aside>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
 
 
-  <!-- SEARCH BAR -->
-  <div class="search-container">
-    <button onclick="useMyLocation()" type="button" name="location" class="location-btn" title="Use Current Location">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
-          <circle cx="12" cy="12" r="3" />
-          <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414m0-13.828l1.414 1.414m12.728 12.728l1.414 1.414" />
-        </svg>
-    </button>       
 
-<form class="search-bar" action="search" onsubmit="return false;">
-  <input type="search" id="cityInput" placeholder="Enter city name" required>
-  
-  <button onclick="searchWeather()" type="submit" class="btn" id="searchBtn">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  </button>
-  
-  <select id="tempUnit" onchange="changeUnit()" class="btn">
-    <option value="metric" selected>°C</option>
-    <option value="imperial">°F</option>
-  </select>
-</form>
 
-  </div>
-
-  <!-- WEATHER DISPLAY -->
-  <section class="weather-display">
-    <div class="city-header">
-      <div class="city-country-header">
-        <h1>City, Country</h1>
-      </div>
-      <div class="ongoing-warning" id="weatherAlert">
-      Loading alerts...
+      <!-- BACKGROUND EFFECT -->
+      <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
       </div>
 
-    </div>
-<div class="main-weather-info">
-  <div class="left-column">
-    <h2>Current Weather</h2>
-    <p class="main-city-clock">--:--</p>
-    <h3>25°C</h3>
-    <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" width="70" alt="Partly Cloudy">
-    <p>Partly Cloudy</p>
-  </div>
+      <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Group 3</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#team">Our Team</a></li> 
+      <li><a href="#portfolio">Portfolio</a></li> 
+      <li><a href="#contact">Contact</a></li>
 
-  <div class="right-column">
-    <p>Humidity: 86%</p>
-    <p>Wind Speed: 2.4 km/h</p>
-    <p>Feels Like: 26°C</p>
-    <p>UV Index: N/A</p>
-    <p>Visibility: 10.0 km</p>
+    </ul>
+  </nav>
+
+
+
+    <!-- HOME SECTION -->
+    <section id="home" class="page-section">
+      <div class="home-flex">
+        <div class="intro">
+          <h1>Hello, We’re <span>Group 3</span></h1>
+          <h2>Creative Team</h2>
+          <p>
+            “Coming together is a beginning.  
+            Keeping together is progress.  
+            Working together is success.”
+          </p>
+      <div class="buttons">
+    <a class="btn primary" href="#portfolio">View Our Work</a>
+  </div>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <div class="title">Group 3 Portfolio</div>
+
+      <!-- Carousel -->
+      <div class="carousel">
+        <div class="card" style="transform: rotateY(0deg) translateZ(300px);">
+          <div class="card-face card-front" data-id="reo">
+            <img src="reo.jpg" alt="Reo">
+            <p>Reo</p>
+          </div>
+          <div class="card-face card-back">Backend Developer</div>
+        </div>
+        <div class="card" style="transform: rotateY(120deg) translateZ(300px);">
+          <div class="card-face card-front" data-id="alethea">
+            <img src="alethea.jpg" alt="Alethea">
+            <p>Alethea</p>
+          </div>
+          <div class="card-face card-back">Frontend Developer</div>
+        </div>
+        <div class="card" style="transform: rotateY(240deg) translateZ(300px);">
+          <div class="card-face card-front" data-id="kristel">
+            <img src="kristel.jpg" alt="Kristel">
+            <p>Kristel</p>
+          </div>
+          <div class="card-face card-back">UI/UX Designer</div>
+        </div>
+      </div>
+
+      <!-- Portrait code box -->
+      <div class="portrait">
+        <div class="code-frame">
+          <div class="code-title">Console</div>
+          <pre id="codeBox" class="code-box" aria-hidden="false"></pre>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+
+      <!-- TOP INFO -->
+      <div class="about-top">
+        <div class="info-box">
+          <h3>PLATFORM</h3>
+          <p>Our website introduces WeatherApp, a real-time weather platform that delivers instant forecasts, live updates, and dynamic data visualizations. 
+            It’s built to help users easily monitor global and local weather conditions through an interactive and accessible dashboard.</p>
+        </div>
+        <div class="info-box">
+          <h3>DATA SOURCES</h3>
+          <p>WeatherApp gathers information from trusted APIs like OpenWeatherMap to ensure precise and reliable forecasts. These live data streams power
+            the platform’s real-time analytics and visual maps.</p>
+        </div>
+        <div class="info-box">
+          <h3>OUR MISSION</h3>
+          <p>Our mission is to make weather monitoring simple, smart, and accessible for everyone. By blending technology with data visualization, we aim to turn weather
+            information into clear and meaningful insights.</p>
+        </div>
+      </div>
+
+      <!-- MIDDLE -->
+      <div class="about-middle">
+        <div class="bouncing-text">
+          <h2>ABOUT OUR WEBSITE</h2>
+        </div>
+        <img src="Background2.jpg" alt="Weather Background">
+      </div>
+
+      <!-- BOTTOM INFO -->
+      <div class="about-bottom">
+        <div class="info-box">
+          <h3>INSTANT FORECASTS</h3>
+          <p>Users can view real-time forecasts and weather changes instantly with just a few clicks. The platform continuously
+            updates data to reflect the most current conditions.</p>
+        </div>
+        <div class="info-box">
+          <h3>INTERACTIVE DASHBOARD</h3>
+          <p>The dashboard features interactive elements like live maps, temperature graphs, and forecast charts. It offers an engaging experience
+            where users can explore and analyze weather patterns visually.</p>
+        </div>
+        <div class="info-box">
+          <h3>USER ACCESSIBILITY</h3>
+          <p>Designed for all devices, WeatherApp ensures smooth navigation whether you’re on desktop, tablet, or mobile. The clean layout and intuitive interface make
+            it easy for anyone to access weather insights anytime.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- OUR TEAM -->
+  <section id="team" class="team-section">
+    <h2 class="section-title">Meet Our Team</h2>
+    <div class="team-container">
+
+        <!-- Kristel -->
+        <div class="team-member" style="--delay: 0s;">
+          <img src="KRISTEL.png" alt="Kristel - UI/UX Designer">
+          <h3>Kristel Mae M. Ocana</h3>
+          <p class="role">UI/UX Designer</p>
+          <div class="info">
+            <p><strong>Age:</strong> 22</p>
+            <p><strong>Address:</strong> P-2 Bancasi, Butuan City</p>
+            <p><strong>Contact:</strong> 09709532388</p>
+            <p><strong>Email:</strong> ocanakristelmae316@gmail.com</p>
+            <p><strong>Skills:</strong> Arts and craft</p>
+            <p><strong>Hobbies:</strong> Crafting, cooking</p>
+          </div>
+
+          <div class="info">
+<p>Crafting intuitive and engaging user experiences through thoughtful design and creativity.</p>
+  <div class="social">
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 </div>
 
 
-  <!-- 5-DAY FORECAST SECTION -->
-  <section class="forecast-container">
-    <h2>5 Day Forecast</h2>
-    <div class="forecast-box">
-      <!-- Forecast cards will be dynamically inserted here -->
-    </div>
-  </section>
 
-  <!-- WEATHER MAP SECTION -->
-  <section class="weather-map-container">
-    <h2>Weather Map</h2>
-    <div class="weather-map-box">
-      <div id="map" style="width: 100%; height: 500px;"></div>
-      <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhaRVHRYrxQs85AyIQJMuzCNsCaB4A-8E&callback=initMap"
-        async
-        defer>
-      </script>
-    </div>
-  </section>
+        </div>
 
-  <!-- OTHER CITIES SECTION -->
-<section class="other-cities-container">
-  <h2>Other Cities</h2>
+            <!-- Reo -->
+        <div class="team-member" style="--delay: 0.4s;">
+          <img src="REO.png" alt="Reo - Back End Developer">
+          <h3>Reo John H. Andohuyan</h3>
+          <p class="role">Back-End Developer</p>
+          <div class="info">
+            <p><strong>Age:</strong> 22</p>
+            <p><strong>Address:</strong> Sibagat, Agusan del Sur</p>
+            <p><strong>Contact:</strong> 09151224300</p>
+            <p><strong>Email:</strong> randohuyan@gmail.com</p>
+            <p><strong>Skills:</strong> Cognitive agility and logical reasoning</p>
+            <p><strong>Hobbies:</strong> Puzzles, watching series</p>
+          </div>
 
-  <div class="city-grid">
-    <!-- First 6 cities (visible) -->
-    <div class="city-card" data-city="Manila">
-      <h4>Manila</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Light rain</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="light rain" width="50">
-    </div>
-    <div class="city-card" data-city="Cebu">
-      <h4>Cebu</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Overcast clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="overcast clouds" width="50">
-    </div>
-    <div class="city-card" data-city="Davao">
-      <h4>Davao</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Overcast clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="overcast clouds" width="50">
-    </div>
-    <div class="city-card" data-city="Baguio">
-      <h4>Baguio</h4>
-      <p class="temp">21°C</p>
-      <p class="weather">Moderate rain</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="moderate rain" width="50">
-    </div>
-    <div class="city-card" data-city="Iloilo">
-      <h4>Iloilo</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Broken clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/03d@2x.png" alt="broken clouds" width="50">
-    </div>
-    <div class="city-card" data-city="Cagayan de Oro">
-      <h4>Cagayan de Oro</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Overcast clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="overcast clouds" width="50">
-    </div>
-
-    <!-- Remaining cities (hidden initially) -->
-    <div class="city-card hidden" data-city="Zamboanga City">
-      <h4>Zamboanga City</h4>
-      <p class="temp">30°C</p>
-      <p class="weather">Clear sky</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="clear sky" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Taguig">
-      <h4>Taguig</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Few clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="few clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Makati">
-      <h4>Makati</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Scattered clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/03d@2x.png" alt="scattered clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Pasig">
-      <h4>Pasig</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Broken clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="broken clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Antipolo">
-      <h4>Antipolo</h4>
-      <p class="temp">27°C</p>
-      <p class="weather">Shower rain</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/09d@2x.png" alt="shower rain" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Bacolod">
-      <h4>Bacolod</h4>
-      <p class="temp">30°C</p>
-      <p class="weather">Clear sky</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="clear sky" width="50">
-    </div>
-    <div class="city-card hidden" data-city="General Santos">
-      <h4>General Santos</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Few clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="few clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Angeles City">
-      <h4>Angeles City</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Scattered clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/03d@2x.png" alt="scattered clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Lipa">
-      <h4>Lipa</h4>
-      <p class="temp">27°C</p>
-      <p class="weather">Broken clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="broken clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Caloocan">
-      <h4>Caloocan</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Light rain</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="light rain" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Las Piñas">
-      <h4>Las Piñas</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Overcast clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="overcast clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Muntinlupa">
-      <h4>Muntinlupa</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Clear sky</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="clear sky" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Quezon City">
-      <h4>Quezon City</h4>
-      <p class="temp">28°C</p>
-      <p class="weather">Few clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="few clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Marikina">
-      <h4>Marikina</h4>
-      <p class="temp">27°C</p>
-      <p class="weather">Broken clouds</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="broken clouds" width="50">
-    </div>
-    <div class="city-card hidden" data-city="Parañaque">
-      <h4>Parañaque</h4>
-      <p class="temp">29°C</p>
-      <p class="weather">Light rain</p>
-      <img class="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="light rain" width="50">
-    </div>
+<div class="info">
+<p>Building robust, scalable, and secure systems that power the application behind the scenes.</p>
+  <div class="social">
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
+</div>
 
-  <!-- Toggle Button -->
-  <button id="toggleCitiesBtn" class="toggle-btn">View More Cities</button>
+
+        </div>
+
+        <!-- Alethea -->
+        <div class="team-member" style="--delay: 0.2s;">
+          <img src="ALETHEA.png" alt="Alethea - Front End Developer">
+          <h3>Alethea Joy Monyk P. Sanchez</h3>
+          <p class="role">Front-End Developer</p>
+          <div class="info">
+            <p><strong>Age:</strong> 22</p>
+            <p><strong>Address:</strong> San Francisco, Agusan del Sur</p>
+            <p><strong>Contact:</strong> 09476296887</p>
+            <p><strong>Email:</strong> aletheasanchez25@gmail.com</p>
+            <p><strong>Skills:</strong> Singing, songwriting, crocheting, programming, fiction writing</p>
+            <p><strong>Hobbies:</strong> Singing, watching shows, gaming</p>
+          </div>
+
+          <div class="info">
+<p>Bringing designs to life with clean, responsive, and interactive web interfaces.</p>
+  <div class="social">
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
+</div>
+
+        </div>
+
+
+      
+    </section>
+
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio">
+  <h2 class="section-title">Portfolio</h2>
+
+  <!-- Weather Checker GIF -->
+<!-- Weather Checker GIF -->
+<div class="portfolio-gif-container">
+  <h3 class="portfolio-gif-title">Weather Checker</h3>
+  <a href="https://reojohn.github.io/Weather-Checker-App/" target="_blank" class="gif-link">
+    <img src="weather.gif" alt="Weather GIF" class="portfolio-gif">
+  </a>
+</div>
+
+
 </section>
 
 
-<!-- CSS for hidden cities and spacing -->
+
+
+      <!-- Typewriter Mission Section -->
+      <div class="mission">
+        <p id="typewriter"></p>
+      </div>
+
+
+      <!-- Modal for team member -->
+  <div id="infoModal" class="modal">
+    <h2 id="modalName"></h2>
+    <p id="modalID"></p>
+    <p id="modalAge"></p>
+    <p id="modalRole"></p>
+
+    <div class="skills">
+      <div id="phpBar" class="skill-bar"></div>
+      <div id="htmlBar" class="skill-bar"></div>
+      <div id="cssBar" class="skill-bar"></div>
+      <div id="pythonBar" class="skill-bar"></div>
+    </div>
+
+    <canvas id="radarChart"></canvas>
+  </div>
+
+  
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Us</h2>
+  
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <div class="info-box">
+        
+        <h3>  <i class="fas fa-envelope"></i> Email</h3>
+        <p>group3@gmail.com</p>
+      </div>
+      <div class="info-box">
+        <h3><i class="fas fa-phone"></i> Phone</h3>
+        <p>+63 915 122 4300</p>
+      </div>
+      <div class="info-box">
+        <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+        <p>Butuan City, Philippines</p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <form id="contactForm" action="https://formspree.io/f/mkgqlngy" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Modal Popup -->
+<div id="messageModal" class="modal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalMessage"></p>
+    <button id="closeModal" class="btn primary">OK</button>
+  </div>
+</div>
+
+<!-- ✅ JS for Modal + Formspree -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showModal("✅ Message Sent!", "Thank you for contacting us. We’ll get back to you soon.");
+      form.reset();
+    } else {
+      showModal("❌ Oops!", "There was a problem sending your message. Please try again later.");
+    }
+  } catch (error) {
+    showModal("⚠️ Network Error", "Please check your connection and try again.");
+  }
+});
+
+// ✅ Modal Controls
+function showModal(title, message) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalMessage").textContent = message;
+  document.getElementById("messageModal").style.display = "flex";
+}
+
+document.getElementById("closeModal").addEventListener("click", () => {
+  document.getElementById("messageModal").style.display = "none";
+});
+</script>
+
+<!-- ✅ Modal CSS -->
 <style>
-.city-card.hidden {
+.modal {
   display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
 }
 
-.toggle-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #3498db;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  animation: slideUp 0.3s ease;
 }
 
-.toggle-btn:hover {
-  background-color: #2d89c6;
+.modal-content h3 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.modal-content p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 </style>
 
-<!-- JS to toggle hidden cities -->
-<script>
-const toggleBtn = document.getElementById("toggleCitiesBtn");
-
-toggleBtn.addEventListener("click", () => {
-  const hiddenCities = document.querySelectorAll(".city-card.hidden");
-
-  if (hiddenCities.length > 0) {
-    // Show all hidden cities
-    hiddenCities.forEach(card => card.classList.remove("hidden"));
-    toggleBtn.textContent = "View Less Cities";
-  } else {
-    // Hide the extra cities again (everything after the first 6)
-    const allCities = document.querySelectorAll(".city-card");
-    allCities.forEach((card, index) => {
-      if (index >= 6) card.classList.add("hidden");
-    });
-    toggleBtn.textContent = "View More Cities";
-  }
-});
-</script>
 
 
 
-  <section class="sun-path-container" id="sunPathContainer">
-    <h2>Sun Path Diagram</h2>
-    <div class="sun-path-content">
-      <div class="sun-path-left">
-        <canvas id="sunPathCanvas" width="380" height="200"></canvas>
-      </div>
-      <div class="sun-path-right" id="sunInfo">
-        <p class="sun-info">Loading sun data...</p>
-      </div>
-    </div>
-  </section>
 
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.querySelector(".sidebar");
-  const toggleBtn = document.getElementById("sidebarToggle");
-  const arrowIcon = document.getElementById("arrowIcon");
-
-  if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("collapsed");
-
-      // Change arrow direction
-      const collapsed = sidebar.classList.contains("collapsed");
-      arrowIcon.textContent = collapsed ? "❯" : "❮";
-    });
-  }
-});
-</script>
-
-
-
-  <!-- External JS -->
-  <script src="index.js" defer></script>
-</body>
-</html>
+      <script src="script.js"></script>
+    </body>
+    </html>
