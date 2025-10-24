@@ -993,8 +993,9 @@ background-color: var(--accent-hover, #555);
   section,
   .search-container {
     width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0
     transition: margin-left 0.3s ease;
   }
   
